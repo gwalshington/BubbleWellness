@@ -1,0 +1,2 @@
+class TherapyFormat < ApplicationRecord
+end

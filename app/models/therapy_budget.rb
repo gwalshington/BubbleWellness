@@ -1,0 +1,2 @@
+class TherapyBudget < ApplicationRecord
+end

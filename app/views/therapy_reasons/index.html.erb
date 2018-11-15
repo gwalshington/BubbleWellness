@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Therapy Reasons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @therapy_reasons.each do |therapy_reason| %>
+      <tr>
+        <td><%= therapy_reason.name %></td>
+        <td><%= link_to 'Show', therapy_reason %></td>
+        <td><%= link_to 'Edit', edit_therapy_reason_path(therapy_reason) %></td>
+        <td><%= link_to 'Destroy', therapy_reason, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Therapy Reason', new_therapy_reason_path %>

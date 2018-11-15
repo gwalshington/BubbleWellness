@@ -1,0 +1,22 @@
+<%= form_for(therapy_integration) do |f| %>
+  <% if therapy_integration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(therapy_integration.errors.count, "error") %> prohibited this therapy_integration from being saved:</h2>
+
+      <ul>
+      <% therapy_integration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

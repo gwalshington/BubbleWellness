@@ -1,0 +1,2 @@
+class TherapyReason < ApplicationRecord
+end

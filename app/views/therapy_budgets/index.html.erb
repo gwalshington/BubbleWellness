@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Therapy Budgets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @therapy_budgets.each do |therapy_budget| %>
+      <tr>
+        <td><%= therapy_budget.price %></td>
+        <td><%= link_to 'Show', therapy_budget %></td>
+        <td><%= link_to 'Edit', edit_therapy_budget_path(therapy_budget) %></td>
+        <td><%= link_to 'Destroy', therapy_budget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Therapy Budget', new_therapy_budget_path %>
