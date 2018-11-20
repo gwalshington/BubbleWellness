@@ -1,1 +1,37 @@
-<h1>Welcome admin <%= current_user.first_name rescue nil %>!</h1>
+<h1>Welcome <%= current_user.first_name rescue 'Admin' %>!</h1>
+
+ <h1>Manage User Options</h1>
+ <%= link_to('Budget Options', therapy_budgets_path) %>
+ <%= link_to('Theropy Integration Options', therapy_integrations_path) %>
+ <%= link_to('Race Options', races_path) %>
+ <%= link_to('Gender Options', genders_path) %>
+ <%= link_to('Therapy Types Options', therapy_types_path) %>
+ <%= link_to('Therapy Reasons Options', therapy_reasons_path) %>
+ <%= link_to('Therapy Formats Options', therapy_formats_path) %>
+
+
+<!-- TO DO - ADD SEARCHABLE DATATABLES. -->
+<table>
+  <th>First Name</th>
+  <% if @users != nil %>
+  <%= @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+    </tr>
+  <% end %>
+  <% else %>
+    <h2>No Users</h2>
+  <% end %>
+</table>
+
+
+
+<table>
+  <% if @therapists != nil %>
+  <%= @therapists.each do |user| %>
+    <td><%= user.first_name %></td>
+  <% end %>
+  <% else %>
+    <h2>No Therapists</h2>
+  <% end %>
+</table>

@@ -1,0 +1,28 @@
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %>
+</div>
+<div class="field">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name %>
+</div>
+<div class="field">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name %>
+</div>
+<div class="field">
+  <%= f.label :zipcode %><br />
+  <%= f.text_field :zipcode %>
+</div>
+<div class="field">
+  <%= f.label :radius %><br />
+  <%= f.text_field :radius %>
+</div>
+<div class="field">
+  <%= f.label 'What is the max you are willing to pay?' %><br />
+  <%= f.number_field :max_price %>
+</div>
+<div class="field">
+  <%= f.label :gender %><br />
+  <%= f.collection_select :gender %>
+</div>

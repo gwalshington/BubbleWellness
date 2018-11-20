@@ -1,0 +1,28 @@
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %>
+</div>
+<div class="field">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name %>
+</div>
+<div class="field">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name %>
+</div>
+<div class="field">
+  <%= f.label :address %><br />
+  <%= f.text_field :address %>
+</div>
+<div class="field">
+  <%= f.label 'What is your session rate?' %><br />
+  <%= f.number_field :max_price %>
+</div>
+<div class="field">
+  <%= f.label 'What is your race?' %><br />
+  <%= f.collection_select :race_id, Race.all, :id, :name, {:selected => current_user.race_id}%>
+</div>
+<div class="field">
+  <%= f.label 'What gender do you identify as?' %><br />
+  <%= f.collection_select :gender_id, Gender.all, :id, :name, {:selected => current_user.gender_id}%>
+</div>

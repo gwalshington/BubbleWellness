@@ -8,8 +8,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :zipcode
       t.integer :radius
       t.string :address
+      t.integer :max_price
       t.references :therapy_format, foreign_key: true
-      t.references :budget, foreign_key: true
     end
   end
 end

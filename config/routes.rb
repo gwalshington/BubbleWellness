@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'home', to: 'user_dash#index', as: 'user_dash'
-  get 'therapist_portal', to: 'therapist_dash#index', as: 'therapist_dash'
+  get 'therapist_portal', to: 'welcome#therapist', as: 'therapist_dash'
   get 'admin', to: 'welcome#admin', as: 'admin'
 
   root 'welcome#index'
@@ -21,5 +21,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  devise_scope :user do
+    get 'new_therapist', to: 'users/registrations#new_therapist', as: 'new_therapist'
+  end
+
 
 end

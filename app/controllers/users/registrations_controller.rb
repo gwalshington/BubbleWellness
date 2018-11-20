@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :skip_password_attribute, only: :update
 
   # GET /resource/sign_up
   # def new
@@ -11,6 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
   # end
+
+  def new_therapist
+    @resource = current_user
+  end
+
 
   # GET /resource/edit
   # def edit
@@ -36,7 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -49,8 +55,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    super(resource)
+  # def after_sign_up_path_for(resource)
+  #   super(resource)
+  # end
+
+  def sign_up_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin, :therapist, :zipcode, :radius, :address, :max_price, :race_id, :gender_id)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin, :therapist, :zipcode, :radius, :address, :max_price, :race_id, :gender_id, :current_password)
+  end
+
+  def skip_password_attribute
+    if params[:password].blank? && params[:password_validation].blank?
+      params.except!(:password, :password_validation)
+    end
   end
 
   # The path used after sign up for inactive accounts.

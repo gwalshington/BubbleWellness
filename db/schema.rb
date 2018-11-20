@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181115173132) do
+ActiveRecord::Schema.define(version: 20181120203027) do
 
   create_table "genders", force: :cascade do |t|
     t.string   "name"
@@ -74,8 +74,13 @@ ActiveRecord::Schema.define(version: 20181115173132) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "max_price"
+    t.integer  "race_id"
+    t.integer  "gender_id"
     t.index ["budget_id"], name: "index_users_on_budget_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["gender_id"], name: "index_users_on_gender_id"
+    t.index ["race_id"], name: "index_users_on_race_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["therapy_format_id"], name: "index_users_on_therapy_format_id"
   end

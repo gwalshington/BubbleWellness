@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <div class="header">
+      <h1>Bubble</h1>
+      <% if user_signed_in? %>
+
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        <%= link_to "Edit My Account", edit_user_registration_path %><br />
+
+      <% else %>
+        <%= link_to "Log in", new_user_session_path %><br />
+        <%= link_to "I am a Therapist", new_therapist_path %><br />
+        <%= link_to "Find a Therapist", new_user_registration_path %><br />
+
+      <% end %>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
